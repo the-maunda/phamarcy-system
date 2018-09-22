@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $categories = App\Category::all();
+    return view('welcome', compact('categories'));
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
